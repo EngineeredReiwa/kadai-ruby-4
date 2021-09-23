@@ -22,7 +22,7 @@
         <nav class="navbar navbar-light bg-light navbar-expand-sm">
             <div class="container-fluid">
                 <!-- 画面左上に表示するサイト名のリンクとして適切な表示をするための指定を追加 -->
-                <a href="#" class="nav-link">サンプル株式会社</a>
+                <a href="#" class="navbar-brand">サンプル株式会社</a>
 
                 <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav-bar">
                     <span class="navbar-toggler-icon"></span>
@@ -44,7 +44,33 @@
         <h1 class="mt-4 pb-4 border-bottom">送信完了</h1>
         <p>ありがとうございました。送信を受け付けました。</p>
         <p>3営業日以内をめどにご返信いたしますので、しばらくお待ちください。</p>
-        <p> <%= company %> <%= name %> <%= mail %> <%= tel %> <%= content %></p>
+        
+        <h3>送信内容</h3>
+        <table class="mt-4 table table-striped table-bordered">
+            <tbody>
+                <tr>
+                    <td>会社名</td>
+                    <td> <%= company %></td>
+                </tr>
+                <tr>
+                    <td>名前</td>
+                    <td><%= name %></td>
+                </tr>
+                <tr>
+                    <td>メールアドレス</td>
+                    <td><%= mail %></td>
+                </tr>
+                                <tr>
+                    <td>電話番号</td>
+                    <td><%= tel %></td>
+                </tr>
+                                <tr>
+                    <td>問い合わせ内容</td>
+                    <td><%= content.gsub(/\r\n|\r|\n/, "<br>") %></td>
+                </tr>
+            </tbody>
+        </table>
+        
         <div class="text-center mb-4">
             <!-- 「戻る」ボタンを緑色にする設定を追加 -->
             <a href="/" class="btn btn-success">戻る</a>
